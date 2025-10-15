@@ -1,0 +1,10 @@
+# Ignore Visual Studio cache and build folders
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.db
+*.vscode/

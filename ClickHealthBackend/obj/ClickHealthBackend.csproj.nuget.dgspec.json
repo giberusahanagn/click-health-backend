@@ -49,9 +49,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "windowsazure.mediaservices": {
+              "target": "Package",
+              "version": "[4.2.0, )"
             }
           },
           "imports": [

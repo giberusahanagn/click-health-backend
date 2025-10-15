@@ -7,6 +7,7 @@
         HCP,
         Patient,
         Sales,
-        MR
+        MR,
+        Admin
     }
 }

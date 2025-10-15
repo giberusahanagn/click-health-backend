@@ -1,28 +1,10 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
+using ClickHealthBackend.Enums;
 
 namespace ClickHealthBackend.Models
 {
-    public enum UserRole
-    {
-        Marketing,
-        Medical,
-        HCP,
-        Patient,
-        Sales,
-        MR
-    }
-
-    public class Consent
-    {
-        [BsonElement("accepted")]
-        public bool Accepted { get; set; }
-
-        [BsonElement("acceptedAt")]
-        public DateTime? AcceptedAt { get; set; }
-    }
-
     public class User
     {
         [BsonId]
@@ -54,9 +36,6 @@ namespace ClickHealthBackend.Models
 
         [BsonElement("isActive")]
         public bool IsActive { get; set; } = true;
-
-        [BsonElement("consent")]
-        public Consent Consent { get; set; }
 
         [BsonElement("preferredLanguage")]
         public string PreferredLanguage { get; set; }

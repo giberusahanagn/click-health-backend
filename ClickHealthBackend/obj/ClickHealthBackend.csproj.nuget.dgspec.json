@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj": {}
+    "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj": {
+    "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+        "projectUniqueName": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj",
         "projectName": "ClickHealthBackend",
-        "projectPath": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\obj\\",
+        "projectPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+        "packagesPath": "C:\\Users\\LAKSHMINARASIMHA D\\.nuget\\packages\\",
+        "outputPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LAKSHMINARASIMHA D\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

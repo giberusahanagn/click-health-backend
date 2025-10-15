@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj": {}
+    "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj": {
+    "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+        "projectUniqueName": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
         "projectName": "ClickHealthBackend",
-        "projectPath": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\obj\\",
+        "projectPath": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,8 +43,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -74,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

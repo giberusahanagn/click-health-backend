@@ -1,7 +1,11 @@
 ﻿using ClickHealthBackend.DTOs;
+using ClickHealthBackend.Enums;
 using ClickHealthBackend.Models;
 using ClickHealthBackend.Repositories.Interfaces;
 using ClickHealthBackend.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ClickHealthBackend.Services.Implementations
 {
@@ -17,32 +21,126 @@ namespace ClickHealthBackend.Services.Implementations
             _emailService = emailService;
         }
 
-        // --- Admin login (password only)
-        public async Task<User?> AdminLoginAsync(string email, string password)
-        {
-            var admin = await _repo.GetByEmailAsync(email);
-            if (admin == null || admin.Role != Enums.UserRole.Admin)
-                return null;
-
-            if (!BCrypt.Net.BCrypt.Verify(password, admin.Password)) return null;
-
-            // Generate OTP for admin
-            await SendOtpAsync(email);
-            return admin;
-        }
-
+        // -------------------------------
+        // LOGIN USING PASSWORD
+        // -------------------------------
         public async Task<User?> UserLoginAsync(string email, string password)
         {
             var user = await _repo.GetByEmailAsync(email);
             if (user == null || !user.IsApproved) return null;
-
             if (!BCrypt.Net.BCrypt.Verify(password, user.Password)) return null;
 
-            // Generate OTP for user
-            await SendOtpAsync(email);
+            // Force reset if temporary password
+            if (user.MustResetPassword) return user;
+
             return user;
         }
 
+        // -------------------------------
+        // LOGIN USING OTP
+        // -------------------------------
+        public async Task<User?> UserLoginWithOtpAsync(string email, string otp)
+        {
+            var user = await _repo.GetByEmailAsync(email);
+            if (user == null || !user.IsApproved || string.IsNullOrEmpty(user.Totp)) return null;
+
+            if (user.TotpGeneratedAt == null ||
+                (DateTime.UtcNow - user.TotpGeneratedAt.Value).TotalMinutes > otpValidityMinutes)
+                return null;
+
+            if (user.Totp != otp) return null;
+
+            user.Totp = null;
+            user.TotpGeneratedAt = null;
+            await _repo.UpdateAsync(user.UserId, user);
+
+            return user;
+        }
+
+        // -------------------------------
+        // SEND OTP
+        // -------------------------------
+        public async Task<bool> SendOtpAsync(string email)
+        {
+            var user = await _repo.GetByEmailAsync(email);
+            if (user == null || !user.IsApproved) return false;
+
+            var otp = new Random().Next(100000, 999999).ToString();
+            user.Totp = otp;
+            user.TotpGeneratedAt = DateTime.UtcNow;
+
+            await _repo.UpdateAsync(user.UserId, user);
+
+            await _emailService.SendEmailAsync(
+                user.Email,
+                "ClickHealth OTP",
+                $"Your OTP is <b>{otp}</b>. It expires in {otpValidityMinutes} minutes."
+            );
+
+            return true;
+        }
+
+        // -------------------------------
+        // VERIFY OTP (LOGIN)
+        // -------------------------------
+        public async Task<bool> VerifyOtpAsync(string email, string otp)
+        {
+            var user = await _repo.GetByEmailAsync(email);
+            if (user == null || user.Totp == null) return false;
+
+            if (user.TotpGeneratedAt == null ||
+                (DateTime.UtcNow - user.TotpGeneratedAt.Value).TotalMinutes > otpValidityMinutes)
+                return false;
+
+            if (user.Totp != otp) return false;
+
+            user.Totp = null;
+            user.TotpGeneratedAt = null;
+            await _repo.UpdateAsync(user.UserId, user);
+
+            return true;
+        }
+
+        // -------------------------------
+        // VERIFY OTP FOR RESET
+        // -------------------------------
+        public async Task<bool> VerifyOtpForResetAsync(string email, string otp)
+        {
+            var user = await _repo.GetByEmailAsync(email);
+            if (user == null || user.Totp == null) return false;
+
+            if (user.TotpGeneratedAt == null ||
+                (DateTime.UtcNow - user.TotpGeneratedAt.Value).TotalMinutes > otpValidityMinutes)
+                return false;
+
+            if (user.Totp != otp) return false;
+
+            user.Totp = null;
+            user.TotpGeneratedAt = null;
+            await _repo.UpdateAsync(user.UserId, user);
+
+            return true;
+        }
+
+        // -------------------------------
+        // UPDATE PASSWORD
+        // -------------------------------
+        public async Task<bool> UpdatePasswordAsync(string email, string newPassword)
+        {
+            var user = await _repo.GetByEmailAsync(email);
+            if (user == null) return false;
+
+            user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
+            user.MustResetPassword = false;
+            user.LastPasswordChangeAt = DateTime.UtcNow;
+
+            await _repo.UpdateAsync(user.UserId, user);
+            return true;
+        }
+
+        // -------------------------------
+        // REGISTRATION
+        // -------------------------------
         public async Task<User> RegisterUserAsync(RegistrationRequestDto request)
         {
             if (await _repo.ExistsAsync(request.Email))
@@ -59,6 +157,7 @@ namespace ClickHealthBackend.Services.Implementations
                 PreferredLanguage = request.PreferredLanguage,
                 IsApproved = false,
                 IsActive = true,
+                Status = UserStatus.Pending,
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -66,71 +165,77 @@ namespace ClickHealthBackend.Services.Implementations
             return newUser;
         }
 
-        public async Task<bool> ApproveUserAndSendCredentialsAsync(string email)
+        // -------------------------------
+        // ADMIN APPROVE USER
+        // -------------------------------
+        public async Task<bool> ApproveUserAsync(string email, UserRole role)
         {
             var user = await _repo.GetByEmailAsync(email);
-            if (user == null) return false;
+            if (user == null || user.Status != UserStatus.Pending) return false;
 
-            // Generate password
-            var password = Guid.NewGuid().ToString().Substring(0, 8);
-            user.Password = BCrypt.Net.BCrypt.HashPassword(password);
+            var tempPassword = Guid.NewGuid().ToString().Substring(0, 8);
+            user.Password = BCrypt.Net.BCrypt.HashPassword(tempPassword);
+            user.Role = role;
             user.IsApproved = true;
+            user.MustResetPassword = true;
+            user.Status = UserStatus.Approved;
 
             await _repo.UpdateAsync(user.UserId, user);
 
-            // Send credentials via email
             await _emailService.SendEmailAsync(
                 user.Email,
                 "ClickHealth Account Approved",
-                $"Your account has been approved.\nEmail: {user.Email}\nPassword: {password}"
+                $"Welcome! Temporary password: <b>{tempPassword}</b>. Please reset after first login."
             );
 
             return true;
         }
 
-        // --- OTP generation ---
-        public async Task<bool> SendOtpAsync(string email)
+        // -------------------------------
+        // ADMIN REJECT USER
+        // -------------------------------
+        public async Task<bool> RejectUserAsync(string email, string reason = null)
         {
             var user = await _repo.GetByEmailAsync(email);
-            if (user == null || !user.IsApproved) return false;
+            if (user == null || user.Status != UserStatus.Pending) return false;
 
-            var otp = new Random().Next(100000, 999999).ToString();
-            user.Totp = otp;
-            user.TotpGeneratedAt = DateTime.UtcNow;
-
+            user.Status = UserStatus.Rejected;
             await _repo.UpdateAsync(user.UserId, user);
 
             await _emailService.SendEmailAsync(
                 user.Email,
-                "Your ClickHealth Login OTP",
-                $"Your OTP is {otp}. It expires in {otpValidityMinutes} minutes."
+                "ClickHealth Account Rejected",
+                $"Your account registration has been rejected.{(string.IsNullOrEmpty(reason) ? "" : $" Reason: {reason}")}"
             );
 
             return true;
         }
 
-        public async Task<User?> VerifyOtpAsync(string email, string otp)
+        // -------------------------------
+        // GET USERS BY STATUS
+        // -------------------------------
+        public async Task<List<User>> GetUsersByStatusAsync(UserStatus status) =>
+            await _repo.GetUsersByStatusAsync(status);
+
+        public async Task<List<User>> GetPendingUsersAsync() =>
+            await _repo.GetUsersByStatusAsync(UserStatus.Pending);
+
+        public async Task<User?> AdminLoginAsync(string email, string password)
         {
             var user = await _repo.GetByEmailAsync(email);
-            if (user == null || user.Totp == null) return null;
+            if (user == null) return null;
 
-            if (user.TotpGeneratedAt == null ||
-                (DateTime.UtcNow - user.TotpGeneratedAt.Value).TotalMinutes > otpValidityMinutes)
-            {
-                return null; // expired
-            }
+            // Ensure user is Admin
+            if (user.Role != UserRole.Admin) return null;
 
-            if (user.Totp != otp) return null; // invalid
+            // Ensure account is approved and active
+            if (!user.IsApproved || !user.IsActive) return null;
 
-            // Clear OTP after verification
-            user.Totp = null;
-            user.TotpGeneratedAt = null;
-            await _repo.UpdateAsync(user.UserId, user);
+            // Verify password
+            if (!BCrypt.Net.BCrypt.Verify(password, user.Password)) return null;
 
             return user;
         }
 
-        public async Task<List<User>> GetPendingUsersAsync() =>
-            await _repo.GetPendingUsersAsync();
     }
 }

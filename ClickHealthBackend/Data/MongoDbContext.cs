@@ -1,11 +1,10 @@
-
-﻿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using ClickHealthBackend.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-﻿using ClickHealth.Server.Models;
+using ClickHealth.Server.Models;
 using ClickHealthBackend.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -17,24 +16,6 @@ namespace ClickHealthBackend.Data
     public class MongoDbContext
     {
         private readonly IMongoDatabase _database;
-
-        // --- Core Collections ---
-        // Assuming your models map directly to collection names
-        public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
-
-
-        // Placeholders for your other 9 collections (Example names provided)
-        public IMongoCollection<object> Campaigns => _database.GetCollection<object>("Campaigns");
-        public IMongoCollection<object> Contents => _database.GetCollection<object>("Contents");
-        public IMongoCollection<object> Patients => _database.GetCollection<object>("Patients");
-        public IMongoCollection<object> Hcps => _database.GetCollection<object>("Hcps");
-        public IMongoCollection<object> Territories => _database.GetCollection<object>("Territories");
-        public IMongoCollection<object> Roles => _database.GetCollection<object>("Roles");
-        public IMongoCollection<object> Logs => _database.GetCollection<object>("Logs");
-        public IMongoCollection<object> Reports => _database.GetCollection<object>("Reports");
-        public IMongoCollection<object> Settings => _database.GetCollection<object>("Settings");
-        // NOTE: Replace 'object' with your actual model class names (e.g., Campaign, Content, etc.)
-
         public MongoDbContext(IMongoClient mongoClient, IOptions<MongoDbSettings> settings)
         {
             // Best practice: The MongoClient is already checked and configured in Program.cs
@@ -43,6 +24,7 @@ namespace ClickHealthBackend.Data
 
             _database = mongoClient.GetDatabase(settings.Value.DatabaseName);
         }
+        public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
         public IMongoCollection<Campaign> Campaigns => _database.GetCollection<Campaign>("Campaigns");
         public IMongoCollection<Content> Contents => _database.GetCollection<Content>("Contents");
         public IMongoCollection<AuditLog> AuditLog => _database.GetCollection<AuditLog>("AuditLog");
@@ -56,7 +38,6 @@ namespace ClickHealthBackend.Data
         public IMongoCollection<PatientEngagement> PatientEngagement => _database.GetCollection<PatientEngagement>("PatientEngagement");
         public IMongoCollection<PatientInvite> PatientInvite => _database.GetCollection<PatientInvite>("PatientInvite");
 
- 
-
+        public IMongoDatabase Database { get; internal set; }
     }
 }

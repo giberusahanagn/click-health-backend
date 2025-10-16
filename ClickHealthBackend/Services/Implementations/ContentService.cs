@@ -11,7 +11,7 @@ namespace ClickHealthBackend.Services.Implementations
 
         public ContentService(MongoDbContext context)
         {
-            _contentCollection = context.Contents;
+            _contentCollection = (IMongoCollection<Content>?)context.Contents;
         }
 
         public async Task<string> UploadContentAsync(Content newContent)

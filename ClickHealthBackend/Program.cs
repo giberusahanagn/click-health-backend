@@ -1,31 +1,24 @@
 ﻿using ClickHealthBackend.Data;
 using ClickHealthBackend.Enums;
 using ClickHealthBackend.Models;
-<<<<<<< HEAD
 using MongoDB.Bson;
-=======
 using ClickHealthBackend.Repositories.Implementations;
 using ClickHealthBackend.Repositories.Interfaces;
 using ClickHealthBackend.Services.Implementations;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
->>>>>>> feature/sahana
+
 using MongoDB.Driver;
 using OtpNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
-<<<<<<< HEAD
-// Add services
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-=======
-// --- 1. Configuration & Dependency Injection ---
 
-// Configure MongoDbSettings
->>>>>>> feature/sahana
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClickHealthBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64cedc0c28605b06a32c73208430e512a1425343")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e96f401d121f6315e8c987df626ffed7df5de9c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClickHealthBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClickHealthBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

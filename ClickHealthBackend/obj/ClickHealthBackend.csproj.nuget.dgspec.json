@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj": {}
+  },
+  "projects": {
+    "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
+        "projectName": "ClickHealthBackend",
+        "projectPath": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\obj\\",
+=======
     "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj": {}
   },
   "projects": {
@@ -12,12 +25,17 @@
         "projectPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj",
         "packagesPath": "C:\\Users\\LAKSHMINARASIMHA D\\.nuget\\packages\\",
         "outputPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\obj\\",
+>>>>>>> integration
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\LAKSHMINARASIMHA D\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> integration
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,16 +61,26 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+<<<<<<< HEAD
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.22.0, )"
+            },
+=======
+>>>>>>> integration
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "windowsazure.mediaservices": {
+              "target": "Package",
+              "version": "[4.2.0, )"
             }
           },
           "imports": [
@@ -74,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

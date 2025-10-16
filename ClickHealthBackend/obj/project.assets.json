@@ -2,6 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
+<<<<<<< HEAD
       "AWSSDK.Core/3.7.100.14": {
         "type": "package",
         "compile": {
@@ -193,6 +194,8 @@
           }
         }
       },
+=======
+>>>>>>> integration
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -204,6 +207,7 @@
           "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
         }
       },
+<<<<<<< HEAD
       "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
         "type": "package",
         "compile": {
@@ -275,6 +279,8 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+=======
+>>>>>>> integration
       "Microsoft.OpenApi/1.6.14": {
         "type": "package",
         "compile": {
@@ -288,6 +294,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Microsoft.Win32.Primitives/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -553,6 +560,8 @@
           }
         }
       },
+=======
+>>>>>>> integration
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -615,6 +624,7 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+<<<<<<< HEAD
       },
       "System.AppContext/4.1.0": {
         "type": "package",
@@ -1941,10 +1951,13 @@
         "runtime": {
           "lib/net6.0/ZstdSharp.dll": {}
         }
+=======
+>>>>>>> integration
       }
     }
   },
   "libraries": {
+<<<<<<< HEAD
     "AWSSDK.Core/3.7.100.14": {
       "sha512": "gnEgxBlk4PFEfdPE8Lkf4+D16MZFYSaW7/o6Wwe5e035QWUkTJX0Dn4LfTCdV5QSEL/fOFxu+yCAm55eIIBgog==",
       "type": "package",
@@ -2190,6 +2203,8 @@
         "microsoft.data.services.client.nuspec"
       ]
     },
+=======
+>>>>>>> integration
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "sha512": "Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw==",
       "type": "package",
@@ -2421,6 +2436,7 @@
         "tools/netcoreapp2.1/System.Diagnostics.DiagnosticSource.dll"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
       "sha512": "6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
       "type": "package",
@@ -2519,6 +2535,8 @@
         "runtime.json"
       ]
     },
+=======
+>>>>>>> integration
     "Microsoft.OpenApi/1.6.14": {
       "sha512": "tTaBT8qjk3xINfESyOPE2rIellPvB7qpVqiWiyA/lACVvz+xOGiXhFUfohcx82NLbi5avzLW0lx+s6oAqQijfw==",
       "type": "package",
@@ -2534,6 +2552,7 @@
         "microsoft.openapi.nuspec"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.Win32.Primitives/4.0.1": {
       "sha512": "fQnBHO9DgcmkC9dYSJoBqo6sH1VJwJprUHh8F3hbcRlxiQiBUuTntdk8tUwV490OqC2kQUrinGwZyQHTieuXRA==",
       "type": "package",
@@ -2831,6 +2850,8 @@
         "snappier.nuspec"
       ]
     },
+=======
+>>>>>>> integration
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -2932,6 +2953,7 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+<<<<<<< HEAD
     },
     "System.AppContext/4.1.0": {
       "sha512": "3QjO4jNV7PdKkmQAVp9atA+usVnKRwI3Kx1nMwJ93T0LcQfx7pKAYk0nKz5wn1oP5iqlhZuy6RXOFdhr7rDwow==",
@@ -6440,10 +6462,13 @@
         "zstdsharp.port.0.6.2.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+=======
+>>>>>>> integration
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+<<<<<<< HEAD
       "MongoDB.Driver >= 2.22.0",
       "Swashbuckle.AspNetCore >= 6.6.2",
       "windowsazure.mediaservices >= 4.2.0"
@@ -6451,22 +6476,41 @@
   },
   "packageFolders": {
     "C:\\Users\\admin\\.nuget\\packages\\": {},
+=======
+      "Swashbuckle.AspNetCore >= 6.6.2"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\LAKSHMINARASIMHA D\\.nuget\\packages\\": {},
+>>>>>>> integration
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
       "projectName": "ClickHealthBackend",
       "projectPath": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
       "outputPath": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\obj\\",
+=======
+      "projectUniqueName": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+      "projectName": "ClickHealthBackend",
+      "projectPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+      "packagesPath": "C:\\Users\\LAKSHMINARASIMHA D\\.nuget\\packages\\",
+      "outputPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\obj\\",
+>>>>>>> integration
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\LAKSHMINARASIMHA D\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> integration
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6498,10 +6542,13 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+<<<<<<< HEAD
           "MongoDB.Driver": {
             "target": "Package",
             "version": "[2.22.0, )"
           },
+=======
+>>>>>>> integration
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
@@ -6536,6 +6583,7 @@
   },
   "logs": [
     {
+<<<<<<< HEAD
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
@@ -6644,6 +6692,12 @@
       "targetGraphs": [
         "net8.0"
       ]
+=======
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+>>>>>>> integration
     }
   ]
 }

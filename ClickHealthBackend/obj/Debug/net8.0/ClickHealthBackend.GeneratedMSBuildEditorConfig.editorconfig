@@ -9,11 +9,22 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ClickHealthBackend
 build_property.RootNamespace = ClickHealthBackend
+<<<<<<< HEAD
 build_property.ProjectDir = D:\MyWorkPlace\ClickHealthCare_project\ClickHealthBackend\
+=======
+build_property.ProjectDir = E:\ClickHealthBackend\click-health-backend\ClickHealthBackend\
+>>>>>>> integration
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = D:\MyWorkPlace\ClickHealthCare_project\ClickHealthBackend
 build_property._RazorSourceGeneratorDebug = 
+=======
+build_property.MSBuildProjectDirectory = E:\ClickHealthBackend\click-health-backend\ClickHealthBackend
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+>>>>>>> integration

@@ -36,9 +36,9 @@ namespace ClickHealthBackend.Models
         [BsonElement("endDate")]
         public DateTime EndDate { get; set; }
 
-        [BsonRepresentation(BsonType.String)]
-        [BsonElement("status")]
-        public CampaignStatus Status { get; set; }
+        //[BsonRepresentation(BsonType.String)]
+        //[BsonElement("status")]
+        //public CampaignStatus Status { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("createdBy_user_id")]

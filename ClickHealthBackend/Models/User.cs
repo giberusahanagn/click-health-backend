@@ -35,6 +35,10 @@ namespace ClickHealthBackend.Models
         [BsonElement("isActive")]
         public bool IsActive { get; set; }
 
+        [BsonElement("status")]
+        [BsonRepresentation(BsonType.String)]
+        public UserStatus Status { get; set; } = UserStatus.Pending;
+
         [BsonElement("isApproved")]
         public bool IsApproved { get; set; }
 
@@ -50,5 +54,11 @@ namespace ClickHealthBackend.Models
 
         [BsonElement("totpGeneratedAt")]
         public DateTime? TotpGeneratedAt { get; set; } // OTP timestamp
+
+        [BsonElement("mustResetPassword")]
+        public bool MustResetPassword { get; set; } = false;
+
+        [BsonElement("lastPasswordChangeAt")]
+        public DateTime? LastPasswordChangeAt { get; set; }
     }
 }

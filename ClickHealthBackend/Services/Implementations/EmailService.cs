@@ -17,22 +17,22 @@ namespace ClickHealthBackend.Services.Implementations
 
         public async Task SendEmailAsync(string toEmail, string subject, string body)
         {
-            using (var client = new SmtpClient(_smtpSettings.Host, _smtpSettings.Port))
+            using var client = new SmtpClient(_smtpSettings.Host, _smtpSettings.Port)
             {
-                client.EnableSsl = _smtpSettings.EnableSsl;
-                client.Credentials = new System.Net.NetworkCredential(_smtpSettings.UserName, _smtpSettings.Password);
+                EnableSsl = _smtpSettings.EnableSsl,
+                Credentials = new System.Net.NetworkCredential(_smtpSettings.UserName, _smtpSettings.Password)
+            };
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress(_smtpSettings.SenderEmail, _smtpSettings.SenderName),
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true,
-                };
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(_smtpSettings.SenderEmail, _smtpSettings.SenderName),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
 
-                mailMessage.To.Add(toEmail);
-                await client.SendMailAsync(mailMessage);
-            }
+            mailMessage.To.Add(toEmail);
+            await client.SendMailAsync(mailMessage);
         }
     }
 }

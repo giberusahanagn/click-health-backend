@@ -1,6 +1,8 @@
 ﻿using ClickHealthBackend.DTOs;
+using ClickHealthBackend.Enums;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/admin")]
@@ -19,27 +21,29 @@ public class AdminController : ControllerBase
         var admin = await _userService.AdminLoginAsync(dto.Email, dto.Password);
         if (admin == null) return Unauthorized("Invalid admin credentials");
 
-        return Ok(new { Message = "Password verified. OTP sent to admin email." });
-    }
-
-    [HttpPost("verify-otp")]
-    public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto dto)
-    {
-        var admin = await _userService.VerifyOtpAsync(dto.Email, dto.Otp);
-        if (admin == null) return Unauthorized("Invalid or expired OTP");
-
-        return Ok(new { Message = "Admin login successful", Email = admin.Email, Role = admin.Role });
+        return Ok(new { Message = "Admin login successful" });
     }
 
     [HttpGet("pending-users")]
-    public async Task<IActionResult> GetPendingUsers() =>
-        Ok(await _userService.GetPendingUsersAsync());
+    public async Task<IActionResult> GetPendingUsers()
+    {
+        var users = await _userService.GetPendingUsersAsync();
+        return Ok(users);
+    }
 
     [HttpPost("approve-user/{email}")]
-    public async Task<IActionResult> ApproveUser(string email)
+    public async Task<IActionResult> ApproveUser(string email, [FromBody] UserRole role)
     {
-        var success = await _userService.ApproveUserAndSendCredentialsAsync(email);
-        if (!success) return NotFound("User not found");
-        return Ok("User approved and credentials sent via email");
+        var success = await _userService.ApproveUserAsync(email, role);
+        if (!success) return NotFound("User not found or not pending");
+        return Ok("User approved successfully");
+    }
+
+    [HttpPost("reject-user/{email}")]
+    public async Task<IActionResult> RejectUser(string email, [FromBody] string reason = "")
+    {
+        var success = await _userService.RejectUserAsync(email, reason);
+        if (!success) return NotFound("User not found or not pending");
+        return Ok("User rejected successfully");
     }
 }

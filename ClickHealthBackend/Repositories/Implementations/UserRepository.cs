@@ -1,4 +1,5 @@
-﻿using ClickHealthBackend.Models;
+﻿using ClickHealthBackend.Enums;
+using ClickHealthBackend.Models;
 using ClickHealthBackend.Repositories.Interfaces;
 using MongoDB.Driver;
 using System.Collections.Generic;
@@ -47,5 +48,14 @@ namespace ClickHealthBackend.Repositories.Implementations
             var result = await _usersCollection.UpdateOneAsync(u => u.Email == email, update);
             return result.ModifiedCount > 0;
         }
+
+
+        public async Task<List<User>> GetUsersByStatusAsync(UserStatus status)
+        {
+            return await _usersCollection
+                .Find(u => u.Status == status)
+                .ToListAsync();
+        }
+
     }
 }

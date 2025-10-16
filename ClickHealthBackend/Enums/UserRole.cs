@@ -2,12 +2,12 @@
 {
     public enum UserRole
     {
-        Marketing,
-        Medical,
+        Marketing_Team,
+        Medical_Team,
         HCP,
         Patient,
-        Sales,
-        MR,
+        Sales_Manager,
+        Medical_Representative,
         Admin
     }
 }

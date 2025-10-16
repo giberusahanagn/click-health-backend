@@ -2,38 +2,39 @@
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ClickHealthBackend.Controllers
+[ApiController]
+[Route("api/user")]
+public class UserController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    private readonly IUserService _userService;
+
+    public UserController(IUserService userService)
     {
-        private readonly IAuthService _authService;
+        _userService = userService;
+    }
 
-        public UserController(IAuthService authService)
-        {
-            _authService = authService;
-        }
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegistrationRequestDto dto)
+    {
+        var user = await _userService.RegisterUserAsync(dto);
+        return Ok(new { Message = "Registration successful. Wait for admin approval." });
+    }
 
-        [HttpPost("admin-login")]
-        public async Task<IActionResult> AdminLogin([FromBody] LoginRequestDto request)
-        {
-            var admin = await _authService.AdminLoginAsync(request.Email, request.Password);
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequestDto dto)
+    {
+        var user = await _userService.UserLoginAsync(dto.Email, dto.Password);
+        if (user == null) return Unauthorized("Invalid credentials or not approved");
 
-            if (admin == null)
-                return Unauthorized("Invalid admin credentials");
+        return Ok(new { Message = "Password verified. OTP sent to email." });
+    }
 
-            // Optional: Generate JWT token (create JwtTokenHelper)
-            var token = "dummy-token"; // replace with real JWT generation
+    [HttpPost("verify-otp")]
+    public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto dto)
+    {
+        var user = await _userService.VerifyOtpAsync(dto.Email, dto.Otp);
+        if (user == null) return Unauthorized("Invalid or expired OTP");
 
-            var response = new LoginResponseDto
-            {
-                Email = admin.Email,
-                Role = admin.Role,
-                Token = token
-            };
-
-            return Ok(response);
-        }
+        return Ok(new { Message = "Login successful", Email = user.Email, Role = user.Role });
     }
 }

@@ -3,6 +3,9 @@
   "targets": {
     "net8.0": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feature/sahana
       "AWSSDK.Core/3.7.100.14": {
         "type": "package",
         "compile": {
@@ -32,6 +35,22 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "BCrypt.Net-Next/4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+>>>>>>> feature/sahana
       "DnsClient/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -48,6 +67,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Microsoft.Azure.KeyVault.Core/1.0.0": {
         "type": "package",
         "compile": {
@@ -196,6 +216,8 @@
       },
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -208,6 +230,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feature/sahana
       "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
         "type": "package",
         "compile": {
@@ -221,6 +246,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Microsoft.IdentityModel.Clients.ActiveDirectory/3.19.8": {
         "type": "package",
         "dependencies": {
@@ -261,6 +287,8 @@
           }
         }
       },
+=======
+>>>>>>> feature/sahana
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -270,6 +298,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+<<<<<<< HEAD
       "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
@@ -281,6 +310,8 @@
       },
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
       "Microsoft.OpenApi/1.6.14": {
         "type": "package",
         "compile": {
@@ -295,6 +326,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Microsoft.Win32.Primitives/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -308,6 +340,8 @@
           }
         }
       },
+=======
+>>>>>>> feature/sahana
       "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -424,6 +458,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "NETStandard.Library/1.6.0": {
         "type": "package",
         "dependencies": {
@@ -536,6 +571,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+=======
+      "Otp.NET/1.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Otp.NET.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Otp.NET.dll": {}
+>>>>>>> feature/sahana
         }
       },
       "SharpCompress/0.30.1": {
@@ -560,8 +604,11 @@
           }
         }
       },
+<<<<<<< HEAD
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -625,6 +672,7 @@
           "Microsoft.AspNetCore.App"
         ]
 <<<<<<< HEAD
+<<<<<<< HEAD
       },
       "System.AppContext/4.1.0": {
         "type": "package",
@@ -639,6 +687,8 @@
         "runtime": {
           "lib/netstandard1.6/System.AppContext.dll": {}
         }
+=======
+>>>>>>> feature/sahana
       },
       "System.Buffers/4.5.1": {
         "type": "package",
@@ -649,6 +699,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+<<<<<<< HEAD
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -976,6 +1027,8 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
+=======
+>>>>>>> feature/sahana
       "System.Memory/4.5.5": {
         "type": "package",
         "compile": {
@@ -985,6 +1038,7 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+<<<<<<< HEAD
       "System.Net.Http/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -1250,6 +1304,8 @@
           }
         }
       },
+=======
+>>>>>>> feature/sahana
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
@@ -1263,6 +1319,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1376,6 +1433,8 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
+=======
+>>>>>>> feature/sahana
       "System.Security.AccessControl/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -1399,6 +1458,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "System.Security.Cryptography.Algorithms/4.2.0": {
         "type": "package",
         "dependencies": {
@@ -1615,6 +1675,8 @@
           }
         }
       },
+=======
+>>>>>>> feature/sahana
       "System.Security.Principal.Windows/5.0.0": {
         "type": "package",
         "compile": {
@@ -1638,6 +1700,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "System.Spatial/5.6.4": {
         "type": "package",
         "compile": {
@@ -1943,6 +2006,8 @@
           }
         }
       },
+=======
+>>>>>>> feature/sahana
       "ZstdSharp.Port/0.6.2": {
         "type": "package",
         "compile": {
@@ -1951,13 +2016,19 @@
         "runtime": {
           "lib/net6.0/ZstdSharp.dll": {}
         }
+<<<<<<< HEAD
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
       }
     }
   },
   "libraries": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feature/sahana
     "AWSSDK.Core/3.7.100.14": {
       "sha512": "gnEgxBlk4PFEfdPE8Lkf4+D16MZFYSaW7/o6Wwe5e035QWUkTJX0Dn4LfTCdV5QSEL/fOFxu+yCAm55eIIBgog==",
       "type": "package",
@@ -2010,6 +2081,40 @@
         "tools/uninstall.ps1"
       ]
     },
+<<<<<<< HEAD
+=======
+    "BCrypt.Net-Next/4.0.3": {
+      "sha512": "W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.0.3.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "ico.png",
+        "lib/net20/BCrypt.Net-Next.dll",
+        "lib/net20/BCrypt.Net-Next.xml",
+        "lib/net35/BCrypt.Net-Next.dll",
+        "lib/net35/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt.Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt.Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt.Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/net5.0/BCrypt.Net-Next.dll",
+        "lib/net5.0/BCrypt.Net-Next.xml",
+        "lib/net6.0/BCrypt.Net-Next.dll",
+        "lib/net6.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt.Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt.Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
+      ]
+    },
+>>>>>>> feature/sahana
     "DnsClient/1.6.1": {
       "sha512": "4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
       "type": "package",
@@ -2034,6 +2139,7 @@
         "lib/netstandard2.1/DnsClient.xml"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.Azure.KeyVault.Core/1.0.0": {
       "sha512": "iaA0E8xoVlqroQ7Iurg/VyAjfPdhzn+xN7JkdncmNoox/ez49uPbxp2vMrvhopBaUMuoBu38+8e0RvrV+X+BxA==",
       "type": "package",
@@ -2205,6 +2311,8 @@
     },
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "sha512": "Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw==",
       "type": "package",
@@ -2437,6 +2545,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feature/sahana
     "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
       "sha512": "6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
       "type": "package",
@@ -2450,6 +2561,7 @@
         "microsoft.extensions.logging.abstractions.nuspec"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.IdentityModel.Clients.ActiveDirectory/3.19.8": {
       "sha512": "PRTE+0vg/e+wNFDBEPdZlDVVwopyOZtGnbg0B4ANxR0eeZKoEwfumBoAIO6iC91jRLMTpCfYXTArmn8BpyLIIg==",
       "type": "package",
@@ -2502,6 +2614,8 @@
         "microsoft.identitymodel.protocol.extensions.nuspec"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "Microsoft.NETCore.Platforms/5.0.0": {
       "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
@@ -2520,6 +2634,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "Microsoft.NETCore.Targets/1.1.0": {
       "sha512": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "type": "package",
@@ -2537,6 +2652,8 @@
     },
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
     "Microsoft.OpenApi/1.6.14": {
       "sha512": "tTaBT8qjk3xINfESyOPE2rIellPvB7qpVqiWiyA/lACVvz+xOGiXhFUfohcx82NLbi5avzLW0lx+s6oAqQijfw==",
       "type": "package",
@@ -2552,6 +2669,7 @@
         "microsoft.openapi.nuspec"
       ]
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
     "Microsoft.Win32.Primitives/4.0.1": {
       "sha512": "fQnBHO9DgcmkC9dYSJoBqo6sH1VJwJprUHh8F3hbcRlxiQiBUuTntdk8tUwV490OqC2kQUrinGwZyQHTieuXRA==",
@@ -2590,6 +2708,8 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "Microsoft.Win32.Registry/5.0.0": {
       "sha512": "dDoKi0PnDz31yAyETfRntsLArTlVAVzUzCIvvEDsDsucrl33Dl8pIJG06ePTJTI3tGpeyHS9Cq7Foc/s4EeKcg==",
       "type": "package",
@@ -2723,6 +2843,7 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
+<<<<<<< HEAD
     "NETStandard.Library/1.6.0": {
       "sha512": "ypsCvIdCZ4IoYASJHt6tF2fMo7N30NLgV1EbmC+snO490OMl9FvVxmumw14rhReWU3j3g7BYudG6YCrchwHJlA==",
       "type": "package",
@@ -2812,6 +2933,26 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.security.cryptography.4.0.0.nupkg.sha512",
         "runtime.native.system.security.cryptography.nuspec"
+=======
+    "Otp.NET/1.4.0": {
+      "sha512": "Fk1NKc0lWmlo6LAFYpFJInRgFKt72knRNEvxndDYoQHFwYOPXav+WEUBvQA0k4lxq5xt0SymrZ+oi0F/G40bPQ==",
+      "type": "package",
+      "path": "otp.net/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "icon.png",
+        "lib/net461/Otp.NET.dll",
+        "lib/net5.0/Otp.NET.dll",
+        "lib/net6.0/Otp.NET.dll",
+        "lib/net7.0/Otp.NET.dll",
+        "lib/net8.0/Otp.NET.dll",
+        "lib/netstandard2.0/Otp.NET.dll",
+        "otp.net.1.4.0.nupkg.sha512",
+        "otp.net.nuspec"
+>>>>>>> feature/sahana
       ]
     },
     "SharpCompress/0.30.1": {
@@ -2850,8 +2991,11 @@
         "snappier.nuspec"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -2954,6 +3098,7 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     "System.AppContext/4.1.0": {
       "sha512": "3QjO4jNV7PdKkmQAVp9atA+usVnKRwI3Kx1nMwJ93T0LcQfx7pKAYk0nKz5wn1oP5iqlhZuy6RXOFdhr7rDwow==",
@@ -3008,6 +3153,8 @@
         "system.appcontext.4.1.0.nupkg.sha512",
         "system.appcontext.nuspec"
       ]
+=======
+>>>>>>> feature/sahana
     },
     "System.Buffers/4.5.1": {
       "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
@@ -3040,6 +3187,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Collections/4.3.0": {
       "sha512": "3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
       "type": "package",
@@ -4027,6 +4175,8 @@
         "system.linq.expressions.nuspec"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "System.Memory/4.5.5": {
       "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "type": "package",
@@ -4050,6 +4200,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Net.Http/4.1.0": {
       "sha512": "ULq9g3SOPVuupt+Y3U+A37coXzdNisB1neFCSKzBwo182u0RDddKJF8I5+HfyXqK6OhJPgeoAwWXrbiUXuRDsg==",
       "type": "package",
@@ -4855,6 +5006,8 @@
         "system.runtime.nuspec"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
@@ -4887,6 +5040,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Runtime.Extensions/4.3.0": {
       "sha512": "guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
       "type": "package",
@@ -5320,6 +5474,8 @@
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "System.Security.AccessControl/5.0.0": {
       "sha512": "dagJ1mHZO3Ani8GH0PHpPEe/oYO+rVdbQjvjJkBRNQkX4t0r1iaeGn8+/ybkSLEan3/slM0t59SVdHzuHf2jmw==",
       "type": "package",
@@ -5367,6 +5523,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Security.Cryptography.Algorithms/4.2.0": {
       "sha512": "8JQFxbLVdrtIOKMDN38Fn0GWnqYZw/oMlwOUG/qz1jqChvyZlnUmu+0s7wLx7JYua/nAXoESpHA3iw11QFWhXg==",
       "type": "package",
@@ -5602,6 +5759,8 @@
         "system.security.cryptography.x509certificates.nuspec"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "System.Security.Principal.Windows/5.0.0": {
       "sha512": "t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==",
       "type": "package",
@@ -5657,6 +5816,7 @@
         "version.txt"
       ]
     },
+<<<<<<< HEAD
     "System.Spatial/5.6.4": {
       "sha512": "BoXUQ0mHyeAbkR3qlhwXqUFxzJ7rZuFOrvFM/jZRk+S6JLI2JxXRKby6bxuWbmwYv2o/eRPQPbAOvEk5hB2Gmg==",
       "type": "package",
@@ -6446,6 +6606,8 @@
         "windowsazure.storage.nuspec"
       ]
     },
+=======
+>>>>>>> feature/sahana
     "ZstdSharp.Port/0.6.2": {
       "sha512": "jPao/LdUNLUz8rn3H1D8W7wQbZsRZM0iayvWI4xGejJg3XJHT56gcmYdgmCGPdJF1UEBqUjucCRrFB+4HbJsbw==",
       "type": "package",
@@ -6462,12 +6624,16 @@
         "zstdsharp.port.0.6.2.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+<<<<<<< HEAD
 =======
 >>>>>>> integration
+=======
+>>>>>>> feature/sahana
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+<<<<<<< HEAD
 <<<<<<< HEAD
       "MongoDB.Driver >= 2.22.0",
       "Swashbuckle.AspNetCore >= 6.6.2",
@@ -6477,17 +6643,27 @@
   "packageFolders": {
     "C:\\Users\\admin\\.nuget\\packages\\": {},
 =======
+=======
+      "BCrypt.Net-Next >= 4.0.3",
+      "MongoDB.Driver >= 2.22.0",
+      "Otp.NET >= 1.4.0",
+>>>>>>> feature/sahana
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\LAKSHMINARASIMHA D\\.nuget\\packages\\": {},
 >>>>>>> integration
+=======
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+>>>>>>> feature/sahana
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "D:\\MyWorkPlace\\ClickHealthCare_project\\ClickHealthBackend\\ClickHealthBackend.csproj",
       "projectName": "ClickHealthBackend",
@@ -6501,16 +6677,27 @@
       "packagesPath": "C:\\Users\\LAKSHMINARASIMHA D\\.nuget\\packages\\",
       "outputPath": "E:\\ClickHealthBackend\\click-health-backend\\ClickHealthBackend\\obj\\",
 >>>>>>> integration
+=======
+      "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+      "projectName": "ClickHealthBackend",
+      "projectPath": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\ClickHealthBackend.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LENOVO\\source\\repos\\ClickHealthBackend\\ClickHealthBackend\\obj\\",
+>>>>>>> feature/sahana
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
         "C:\\Users\\LAKSHMINARASIMHA D\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> integration
+=======
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> feature/sahana
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6543,12 +6730,26 @@
         "targetAlias": "net8.0",
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+          "BCrypt.Net-Next": {
+            "target": "Package",
+            "version": "[4.0.3, )"
+          },
+>>>>>>> feature/sahana
           "MongoDB.Driver": {
             "target": "Package",
             "version": "[2.22.0, )"
           },
+<<<<<<< HEAD
 =======
 >>>>>>> integration
+=======
+          "Otp.NET": {
+            "target": "Package",
+            "version": "[1.4.0, )"
+          },
+>>>>>>> feature/sahana
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
@@ -6580,6 +6781,7 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
       }
     }
+<<<<<<< HEAD
   },
   "logs": [
     {
@@ -6700,4 +6902,7 @@
 >>>>>>> integration
     }
   ]
+=======
+  }
+>>>>>>> feature/sahana
 }

@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
 using ClickHealthBackend.Enums;
 
 namespace ClickHealthBackend.Models
@@ -9,35 +8,44 @@ namespace ClickHealthBackend.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        [BsonElement("user_id")]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [BsonElement("email")]
-        public string Email { get; set; }
+        public string Email { get; set; } = null!;
 
-        [BsonElement("phone")]
-        public string Phone { get; set; }
+        [BsonElement("password")]
+        public string Password { get; set; } = null!;
 
-        [BsonRepresentation(BsonType.String)]
         [BsonElement("role")]
+        [BsonRepresentation(BsonType.String)]
         public UserRole Role { get; set; }
 
+        [BsonElement("phone")]
+        public string Phone { get; set; } = null!;
+
         [BsonElement("specialty")]
-        public string Specialty { get; set; }
+        public string Specialty { get; set; } = null!;
 
         [BsonElement("territory")]
-        public string Territory { get; set; }
-
-        [BsonElement("createdAt")]
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-        [BsonElement("lastLoginAt")]
-        public DateTime? LastLoginAt { get; set; }
+        public string Territory { get; set; } = null!;
 
         [BsonElement("isActive")]
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; }
+
+        [BsonElement("isApproved")]
+        public bool IsApproved { get; set; }
 
         [BsonElement("preferredLanguage")]
-        public string PreferredLanguage { get; set; }
+        public string PreferredLanguage { get; set; } = null!;
+
+        [BsonElement("createdAt")]
+        public DateTime CreatedAt { get; set; }
+
+        // --- OTP fields ---
+        [BsonElement("totp")]
+        public string? Totp { get; set; }   // OTP code
+
+        [BsonElement("totpGeneratedAt")]
+        public DateTime? TotpGeneratedAt { get; set; } // OTP timestamp
     }
 }

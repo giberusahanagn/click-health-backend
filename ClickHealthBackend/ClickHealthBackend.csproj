@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
 
+
     <!-- Disable Static Web Assets for backend-only project -->
 
     <!-- 👇 Disable Static Web Assets for backend-only project -->
@@ -31,6 +32,23 @@
     <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
     <PackageReference Include="Otp.NET" Version="1.4.0" />
 <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+
+    <RootNamespace>ClickHealthBackend</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MongoDB packages -->
+    <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.22.0" />
+
+    <!-- ASP.NET Core dependencies -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+
+    <!-- Optional: logging or configuration -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
 
   </ItemGroup>
 

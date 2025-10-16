@@ -1,11 +1,14 @@
-﻿using Microsoft.WindowsAzure.MediaServices.Client;
+﻿
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace ClickHealthBackend.Models
 {
-    public class PatientInvite : BaseEntity
+    public class PatientInvite
     {
         [BsonElement("inviteCode")]
+        [BsonRepresentation(BsonType.ObjectId)]
+
         public string InviteCode { get; set; } = string.Empty;
 
         [BsonElement("hcpUserId")]

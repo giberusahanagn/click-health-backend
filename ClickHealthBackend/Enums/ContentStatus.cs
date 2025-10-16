@@ -5,6 +5,7 @@
         Pending,
         Approved,
         Rejected,
-        Expired
+        Expired,
+        PendingApproval
     }
 }

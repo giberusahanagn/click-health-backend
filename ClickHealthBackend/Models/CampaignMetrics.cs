@@ -1,9 +1,9 @@
-﻿using Microsoft.WindowsAzure.MediaServices.Client;
+﻿
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace ClickHealthBackend.Models
 {
-    public class CampaignMetrics : BaseEntity
+    public class CampaignMetrics
     {
         [BsonElement("campaignId")]
         public string CampaignId { get; set; } = string.Empty;

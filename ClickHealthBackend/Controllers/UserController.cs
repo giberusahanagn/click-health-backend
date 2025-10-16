@@ -1,6 +1,8 @@
 ﻿using ClickHealthBackend.DTOs;
+using ClickHealthBackend.Models;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/user")]
@@ -26,15 +28,55 @@ public class UserController : ControllerBase
         var user = await _userService.UserLoginAsync(dto.Email, dto.Password);
         if (user == null) return Unauthorized("Invalid credentials or not approved");
 
-        return Ok(new { Message = "Password verified. OTP sent to email." });
+        if (user.MustResetPassword)
+            return Ok(new { Message = "First-time login. Please reset your password." });
+
+        return Ok(new { Message = "Login successful", Email = user.Email, Role = user.Role });
     }
 
-    [HttpPost("verify-otp")]
-    public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto dto)
+    [HttpPost("login-otp")]
+    public async Task<IActionResult> LoginWithOtp([FromBody] VerifyOtpRequestDto dto)
     {
-        var user = await _userService.VerifyOtpAsync(dto.Email, dto.Otp);
+        var user = await _userService.UserLoginWithOtpAsync(dto.Email, dto.Otp);
         if (user == null) return Unauthorized("Invalid or expired OTP");
 
         return Ok(new { Message = "Login successful", Email = user.Email, Role = user.Role });
     }
+
+    [HttpPost("forgot-password")]
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequestDto dto)
+    {
+        var sent = await _userService.SendOtpAsync(dto.Email);
+        if (!sent) return NotFound("Email not found or not approved.");
+        return Ok("OTP sent to your email for password reset.");
+    }
+
+    [HttpPost("reset-password")]
+    public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequestDto dto)
+    {
+        var otpValid = await _userService.VerifyOtpForResetAsync(dto.Email, dto.Otp);
+        if (!otpValid) return Unauthorized("Invalid or expired OTP.");
+
+        var updated = await _userService.UpdatePasswordAsync(dto.Email, dto.NewPassword);
+        if (!updated) return BadRequest("Failed to reset password.");
+
+        return Ok("Password reset successfully. Please login again.");
+    }
+
+    [HttpPost("send-otp")]
+    public async Task<IActionResult> SendOtp([FromBody] SendOtpRequestDto dto)
+    {
+        var sent = await _userService.SendOtpAsync(dto.Email);
+        if (!sent) return NotFound("Email not found or not approved.");
+        return Ok("OTP sent to your email.");
+    }
+    [HttpPost("verify-otp")]
+    public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpRequestDto dto)
+    {
+        var user = await _userService.UserLoginWithOtpAsync(dto.Email, dto.Otp);
+        if (user == null) return Unauthorized("Invalid or expired OTP");
+
+        return Ok(new { Message = "Login successful", Email = user.Email, Role = user.Role });
+    }
+
 }

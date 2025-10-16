@@ -1,4 +1,5 @@
-﻿using ClickHealthBackend.Models;
+﻿using ClickHealthBackend.Enums;
+using ClickHealthBackend.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,5 +13,7 @@ namespace ClickHealthBackend.Repositories.Interfaces
         Task CreateAsync(User user);
         Task<bool> UpdateAsync(string id, User user);
         Task<bool> ExistsAsync(string email);
+
+        Task<List<User>> GetUsersByStatusAsync(UserStatus status);
     }
 }

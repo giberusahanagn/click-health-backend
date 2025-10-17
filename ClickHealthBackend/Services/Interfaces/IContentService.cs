@@ -2,8 +2,8 @@
 
 namespace ClickHealthBackend.Services.Interfaces
 {
-    public interface IAuthService
+    public interface IContentService
     {
-        Task<User?> AdminLoginAsync(string email, string password);
+        Task<Content?> UploadContentAsync(Content newContent);
     }
 }

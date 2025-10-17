@@ -1,11 +1,9 @@
 ﻿namespace ClickHealthBackend.Enums
 {
-    public enum ContentStatus
+    public enum UserStatus
     {
         Pending,
         Approved,
-        Rejected,
-        Expired,
-        PendingApproval
+        Rejected
     }
 }

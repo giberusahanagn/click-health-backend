@@ -1,5 +1,10 @@
 ﻿using ClickHealthBackend.Data;
 using ClickHealth.Server.Models;
+
+﻿using ClickHealthBackend.Data;
+
+﻿using ClickHealth.Server.Models;
+using ClickHealthBackend.Data;
 using ClickHealthBackend.Enums;
 using ClickHealthBackend.Models;
 using ClickHealthBackend.Repositories.Implementations;
@@ -8,12 +13,46 @@ using ClickHealthBackend.Services.Implementations;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
+
 using MongoDB.Driver;
 using OtpNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 1. CORS ---
+
+// --- 1. Configuration & Dependency Injection ---
+
+// Configure MongoDbSettings
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
+
+// Configure SmtpSettings (Needed for EmailService)
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+// FIX: Explicitly register IMongoClient as a Singleton.
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
+    return new MongoClient(settings.ConnectionString);
+});
+
+// Register MongoDbContext as singleton
+builder.Services.AddSingleton<MongoDbContext>();
+
+// Register repository and service using Scoped lifetime
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+// FIX: Register the Email Service implementation to resolve the dependency in UserService
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+// Add controllers
+builder.Services.AddControllers();
+
+// Add Swagger services
+
+// --- CORS ---
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -26,6 +65,7 @@ builder.Services.AddCors(options =>
 
 // --- 2. Controllers & Swagger ---
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

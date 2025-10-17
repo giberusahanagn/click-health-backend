@@ -10,12 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <PackageReference Include="MongoDB.Bson" Version="3.5.0" />
+=======
     <!-- MongoDB Packages -->
     <PackageReference Include="GoogleAuthenticator" Version="3.2.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
+>>>>>>> fde201950509591c38cc9171c6ad8227def2ea67
     <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.22.0" />
 
+<<<<<<< HEAD
+
+=======
     <!-- Password Hashing -->
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 
@@ -23,6 +30,7 @@
     <PackageReference Include="Otp.NET" Version="1.4.0" />
 
     <!-- Swagger / OpenAPI -->
+>>>>>>> fde201950509591c38cc9171c6ad8227def2ea67
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
 

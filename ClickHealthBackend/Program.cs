@@ -1,9 +1,8 @@
-<<<<<<< Updated upstream
+
 ﻿using ClickHealthBackend.Data;
-=======
+
 ﻿using ClickHealth.Server.Models;
 using ClickHealthBackend.Data;
->>>>>>> Stashed changes
 using ClickHealthBackend.Enums;
 using ClickHealthBackend.Models;
 using ClickHealthBackend.Repositories.Implementations;
@@ -11,16 +10,15 @@ using ClickHealthBackend.Repositories.Interfaces;
 using ClickHealthBackend.Services.Implementations;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
-<<<<<<< Updated upstream
-=======
+
 using MongoDB.Bson;
->>>>>>> Stashed changes
+
 using MongoDB.Driver;
 using OtpNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
-<<<<<<< Updated upstream
+
 // --- 1. Configuration & Dependency Injection ---
 
 // Configure MongoDbSettings
@@ -52,7 +50,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddControllers();
 
 // Add Swagger services
-=======
+
 // --- CORS ---
 builder.Services.AddCors(options =>
 {
@@ -66,7 +64,7 @@ builder.Services.AddCors(options =>
 
 // --- Controllers & Swagger ---
 builder.Services.AddControllers();
->>>>>>> Stashed changes
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -149,8 +147,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-<<<<<<< Updated upstream
-=======
 
 // --- 3. Auto-create collections with schema validation ---
 using (var scope = app.Services.CreateScope())
@@ -194,5 +190,5 @@ using (var scope = app.Services.CreateScope())
     db.CreateCollection("Contents");
 }
 
->>>>>>> Stashed changes
+
 app.Run();

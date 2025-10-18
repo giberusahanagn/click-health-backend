@@ -93,15 +93,7 @@ namespace ClickHealthBackend.Controllers
         }
 
 
-        //[HttpGet("workflow")]
-        //public async Task<IActionResult> GetContentWorkflow([FromQuery] string uploaderId)
-        //{
-        //    if (string.IsNullOrEmpty(uploaderId))
-        //        return BadRequest("UploaderId is required.");
-
-        //    var workflowData = await _contentService.GetContentWorkflowByUploaderAsync(uploaderId);
-        //    return workflowData.Any() ? Ok(workflowData) : NotFound("No contents found for this uploader.");
-        //}
+   
 
         [HttpGet("workflow")]
         public async Task<IActionResult> GetContentWorkflow()

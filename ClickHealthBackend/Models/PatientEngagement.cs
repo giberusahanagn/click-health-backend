@@ -4,21 +4,25 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ClickHealthBackend.Models
 {
-    public class PatientEngagement 
+    public class PatientEngagement
     {
-        [BsonElement("inviteCode")]
+        [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
 
-        public string InviteCode { get; set; } = string.Empty;
+        [BsonElement("inviteCode")]
+        public string InviteCode { get; set; }
 
         [BsonElement("pseudonymousId")]
-        public string PseudonymousId { get; set; } = string.Empty;
+        public string PseudonymousId { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("contentId")]
-        public string ContentId { get; set; } = string.Empty;
+        public string ContentId { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("campaignId")]
-        public string? CampaignId { get; set; }
+        public string CampaignId { get; set; }
 
         [BsonElement("viewedAt")]
         public DateTime? ViewedAt { get; set; }
@@ -33,12 +37,16 @@ namespace ClickHealthBackend.Models
         public bool ConsentGiven { get; set; }
 
         [BsonElement("quizResponse")]
-        public Dictionary<string, object>? QuizResponse { get; set; }
+        public BsonDocument QuizResponse { get; set; }
 
         [BsonElement("city")]
-        public string? City { get; set; }
+        public string City { get; set; }
 
         [BsonElement("language")]
-        public string? Language { get; set; }
+        public string Language { get; set; }
+
+        [BsonElement("engagementType")]
+        [BsonRepresentation(BsonType.String)]
+        public EngagementType? EngagementType { get; set; }
     }
 }

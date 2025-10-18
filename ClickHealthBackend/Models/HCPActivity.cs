@@ -9,18 +9,21 @@ namespace ClickHealthBackend.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string hcpActivityId { get; set; }
+        public string HcpActivityId { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("hcpUserId")]
         public string HcpUserId { get; set; }
 
         [BsonElement("hcpActivityType")]
         [BsonRepresentation(BsonType.String)]
-        public HCPActivityType hcpActivityType { get; set; }
+        public HCPActivityType HcpActivityType { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("contentId")]
         public string ContentId { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("campaignId")]
         public string CampaignId { get; set; }
 
@@ -31,7 +34,7 @@ namespace ClickHealthBackend.Models
         public int DurationSeconds { get; set; }
 
         [BsonElement("metadata")]
-        public object Metadata { get; set; }
+        public BsonDocument Metadata { get; set; }
 
         [BsonElement("territory")]
         public string Territory { get; set; }

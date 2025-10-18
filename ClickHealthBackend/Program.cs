@@ -1,12 +1,11 @@
-<<<<<<< Updated upstream
+
 ﻿using ClickHealthBackend.Data;
 using ClickHealth.Server.Models;
 
 ﻿using ClickHealthBackend.Data;
 
 ﻿using ClickHealth.Server.Models;
-=======
->>>>>>> Stashed changes
+s
 using ClickHealthBackend.Data;
 using ClickHealthBackend.Enums;
 using ClickHealthBackend.Models;
@@ -15,21 +14,20 @@ using ClickHealthBackend.Repositories.Interfaces;
 using ClickHealthBackend.Services.Implementations;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
-<<<<<<< Updated upstream
+
 using MongoDB.Bson;
 
-=======
->>>>>>> Stashed changes
+
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
-<<<<<<< Updated upstream
+
 
 // --- 1. Configuration & Dependency Injection ---
 
 // Configure MongoDbSettings
-=======
+
 // Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -51,7 +49,7 @@ builder.Services.AddSingleton<MongoDbContext>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
-<<<<<<< Updated upstream
+
 
 // FIX: Register the Email Service implementation to resolve the dependency in UserService
 builder.Services.AddScoped<IEmailService, EmailService>();
@@ -101,25 +99,24 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 // Services & Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
-=======
->>>>>>> Stashed changes
+
 builder.Services.AddScoped<IContentService, ContentService>();
 
 var app = builder.Build();
 
-<<<<<<< Updated upstream
+
 // --- 4. Seed Default Admin ---
 using (var scope = app.Services.CreateScope())
-=======
+
 // Middleware
 if (app.Environment.IsDevelopment())
->>>>>>> Stashed changes
+
 {
     app.UseSwagger();
     app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClickHealth API v1"); c.RoutePrefix = "swagger"; });
 }
 
-<<<<<<< Updated upstream
+
     var existingAdmin = await usersCollection
         .Find(u => u.Email == "sunilofficial781@gmail.com" && u.Role == UserRole.Admin)
         .FirstOrDefaultAsync();
@@ -128,7 +125,7 @@ if (app.Environment.IsDevelopment())
     {
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword("admin@123");
 
-=======
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
@@ -154,7 +151,7 @@ static async Task SeedAdminUserAsync(WebApplication app)
 
     if (existingAdmin == null)
     {
->>>>>>> Stashed changes
+
         var adminUser = new User
         {
             Email = "sunilofficial781@gmail.com",
@@ -168,7 +165,6 @@ static async Task SeedAdminUserAsync(WebApplication app)
             Status = UserStatus.Approved,
             PreferredLanguage = "English",
             CreatedAt = DateTime.UtcNow,
-<<<<<<< Updated upstream
             Password = hashedPassword,
             MustResetPassword = false
         };
@@ -180,7 +176,7 @@ static async Task SeedAdminUserAsync(WebApplication app)
 
 // --- 5. Middleware ---
 if (app.Environment.IsDevelopment())
-=======
+
             Password = BCrypt.Net.BCrypt.HashPassword("admin@123")
         };
 
@@ -190,14 +186,14 @@ if (app.Environment.IsDevelopment())
 }
 
 static void CreateCollectionsIfNotExists(WebApplication app)
->>>>>>> Stashed changes
+
 {
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<MongoDbContext>().Database;
 
     foreach (var name in new[] { "Users", "Campaigns", "Contents", "AuditLog" })
     {
-<<<<<<< Updated upstream
+
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClickHealth API v1");
         c.RoutePrefix = "swagger";
     });
@@ -252,8 +248,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
-=======
-        if (!db.ListCollectionNames().ToList().Contains(name))
+if (!db.ListCollectionNames().ToList().Contains(name))
         {
             db.CreateCollection(name);
             Console.WriteLine($"✅ Created collection: {name}");
@@ -264,4 +259,4 @@ app.Run();
         }
     }
 }
->>>>>>> Stashed changes
+

@@ -1,9 +1,12 @@
+<<<<<<< Updated upstream
 ﻿using ClickHealthBackend.Data;
 using ClickHealth.Server.Models;
 
 ﻿using ClickHealthBackend.Data;
 
 ﻿using ClickHealth.Server.Models;
+=======
+>>>>>>> Stashed changes
 using ClickHealthBackend.Data;
 using ClickHealthBackend.Enums;
 using ClickHealthBackend.Models;
@@ -12,37 +15,43 @@ using ClickHealthBackend.Repositories.Interfaces;
 using ClickHealthBackend.Services.Implementations;
 using ClickHealthBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
+<<<<<<< Updated upstream
 using MongoDB.Bson;
 
+=======
+>>>>>>> Stashed changes
 using MongoDB.Driver;
-using OtpNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
+<<<<<<< Updated upstream
 
 // --- 1. Configuration & Dependency Injection ---
 
 // Configure MongoDbSettings
+=======
+// Services
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+>>>>>>> Stashed changes
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
-
-// Configure SmtpSettings (Needed for EmailService)
-builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.Configure<SmtpSettings>(
+    builder.Configuration.GetSection("SmtpSettings"));
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-// FIX: Explicitly register IMongoClient as a Singleton.
 builder.Services.AddSingleton<IMongoClient>(sp =>
 {
     var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
     return new MongoClient(settings.ConnectionString);
 });
-
-// Register MongoDbContext as singleton
 builder.Services.AddSingleton<MongoDbContext>();
 
-// Register repository and service using Scoped lifetime
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+<<<<<<< Updated upstream
 
 // FIX: Register the Email Service implementation to resolve the dependency in UserService
 builder.Services.AddScoped<IEmailService, EmailService>();
@@ -92,16 +101,25 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 // Services & Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+=======
+>>>>>>> Stashed changes
 builder.Services.AddScoped<IContentService, ContentService>();
 
 var app = builder.Build();
 
+<<<<<<< Updated upstream
 // --- 4. Seed Default Admin ---
 using (var scope = app.Services.CreateScope())
+=======
+// Middleware
+if (app.Environment.IsDevelopment())
+>>>>>>> Stashed changes
 {
-    var context = scope.ServiceProvider.GetRequiredService<MongoDbContext>();
-    var usersCollection = context.Users;
+    app.UseSwagger();
+    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClickHealth API v1"); c.RoutePrefix = "swagger"; });
+}
 
+<<<<<<< Updated upstream
     var existingAdmin = await usersCollection
         .Find(u => u.Email == "sunilofficial781@gmail.com" && u.Role == UserRole.Admin)
         .FirstOrDefaultAsync();
@@ -110,6 +128,33 @@ using (var scope = app.Services.CreateScope())
     {
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword("admin@123");
 
+=======
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+
+// Seed admin & create collections
+await SeedAdminUserAsync(app);
+CreateCollectionsIfNotExists(app);
+
+app.Run();
+
+// ---------------------------
+// Helper Methods
+// ---------------------------
+
+static async Task SeedAdminUserAsync(WebApplication app)
+{
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<MongoDbContext>();
+    var users = context.Users;
+
+    var existingAdmin = await users.Find(u => u.Email == "admin@clickhealth.com" && u.Role == UserRole.Admin)
+                                  .FirstOrDefaultAsync();
+
+    if (existingAdmin == null)
+    {
+>>>>>>> Stashed changes
         var adminUser = new User
         {
             Email = "sunilofficial781@gmail.com",
@@ -123,6 +168,7 @@ using (var scope = app.Services.CreateScope())
             Status = UserStatus.Approved,
             PreferredLanguage = "English",
             CreatedAt = DateTime.UtcNow,
+<<<<<<< Updated upstream
             Password = hashedPassword,
             MustResetPassword = false
         };
@@ -134,10 +180,24 @@ using (var scope = app.Services.CreateScope())
 
 // --- 5. Middleware ---
 if (app.Environment.IsDevelopment())
+=======
+            Password = BCrypt.Net.BCrypt.HashPassword("admin@123")
+        };
+
+        await users.InsertOneAsync(adminUser);
+        Console.WriteLine("✅ Default Admin created");
+    }
+}
+
+static void CreateCollectionsIfNotExists(WebApplication app)
+>>>>>>> Stashed changes
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<MongoDbContext>().Database;
+
+    foreach (var name in new[] { "Users", "Campaigns", "Contents", "AuditLog" })
     {
+<<<<<<< Updated upstream
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClickHealth API v1");
         c.RoutePrefix = "swagger";
     });
@@ -192,3 +252,16 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
+=======
+        if (!db.ListCollectionNames().ToList().Contains(name))
+        {
+            db.CreateCollection(name);
+            Console.WriteLine($"✅ Created collection: {name}");
+        }
+        else
+        {
+            Console.WriteLine($"ℹ️ Collection {name} already exists.");
+        }
+    }
+}
+>>>>>>> Stashed changes

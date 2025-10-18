@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 using Microsoft.Extensions.Options;
 
 using MongoDB.Driver;
@@ -20,9 +21,32 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System.Diagnostics;
 
+=======
+
+using Microsoft.Extensions.Options;
+ 
+using MongoDB.Driver;
+ 
+using ClickHealthBackend.Models;
+ 
+using System;
+ 
+using System.Collections.Generic;
+ 
+using System.Linq;
+ 
+using ClickHealth.Server.Models;
+ 
+using ClickHealthBackend.Models;
+ 
+using Microsoft.Extensions.Options;
+ 
+using MongoDB.Driver;
+ 
+>>>>>>> Stashed changes
 using System.Diagnostics;
-
-
+ 
+ 
 namespace ClickHealthBackend.Data
 
 {
@@ -54,9 +78,12 @@ namespace ClickHealthBackend.Data
         public IMongoCollection<Content> Contents => Database.GetCollection<Content>("Contents");
 
         public IMongoCollection<AuditLog> AuditLog => Database.GetCollection<AuditLog>("AuditLog");
+<<<<<<< Updated upstream
 
 
         // Add rest of your collections
+=======
+>>>>>>> Stashed changes
         public IMongoCollection<CampaignAsset> CampaignAsset => Database.GetCollection<CampaignAsset>("CampaignAsset");
         public IMongoCollection<CampaignMetrics> CampaignMetrics => Database.GetCollection<CampaignMetrics>("CampaignMetrics");
         public IMongoCollection<ConsentRecord> ConsentRecord => Database.GetCollection<ConsentRecord>("ConsentRecord");
@@ -66,14 +93,22 @@ namespace ClickHealthBackend.Data
 
         public IMongoCollection<MRActivity> MRActivity => Database.GetCollection<MRActivity>("MRActivity");
         public IMongoCollection<PatientEngagement> PatientEngagement => Database.GetCollection<PatientEngagement>("PatientEngagement");
+<<<<<<< Updated upstream
 
         public IMongoCollection<PatientInvite> PatientInvite => Database.GetCollection<PatientInvite>("PatientInvite");
+=======
+        public IMongoCollection<PatientInvite> PatientInvite => Database.GetCollection<PatientInvite>("PatientInvite");
+
+
+        // Add rest of your collections
+>>>>>>> Stashed changes
 
     }
 
 }
 
 
+<<<<<<< Updated upstream
 
         // Add rest of your collections
 
@@ -81,3 +116,5 @@ namespace ClickHealthBackend.Data
 
 }
 
+=======
+>>>>>>> Stashed changes

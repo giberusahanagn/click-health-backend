@@ -5,19 +5,27 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ClickHealthBackend</RootNamespace>
+<<<<<<< Updated upstream
     <!-- Disable Static Web Assets for backend-only project -->
+=======
+>>>>>>> Stashed changes
     <DisableStaticWebAssets>true</DisableStaticWebAssets>
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
     <PackageReference Include="MongoDB.Bson" Version="3.5.0" />
 
     <!-- MongoDB Packages -->
     <PackageReference Include="GoogleAuthenticator" Version="3.2.0" />
+=======
+    <!-- MongoDB packages -->
+>>>>>>> Stashed changes
     <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
     <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.22.0" />
 
+<<<<<<< Updated upstream
 
 
 
@@ -29,6 +37,15 @@
 
     <!-- Swagger / OpenAPI -->
 
+=======
+    <!-- Password hashing -->
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+
+    <!-- OTP generation -->
+    <PackageReference Include="Otp.NET" Version="1.4.0" />
+
+    <!-- Swagger/OpenAPI -->
+>>>>>>> Stashed changes
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
 

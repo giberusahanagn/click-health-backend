@@ -10,17 +10,14 @@ namespace ClickHealthBackend.Models
     public class Content
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         [BsonElement("content_id")]
         public string ContentId { get; set; }
-
-        [BsonElement("title")]
-        public string Title { get; set; }
 
         [BsonElement("description")]
         public string Description { get; set; }
 
-        [BsonElement("therapy")]
+        [BsonElement("medical_name")]
         public string Therapy { get; set; }
 
         [BsonElement("language")]
@@ -30,10 +27,10 @@ namespace ClickHealthBackend.Models
         [BsonElement("contentType")]
         public ContentType ContentType { get; set; }
 
-        [BsonElement("fileUrl")]
+        [BsonElement("upload_pdf")]
         public string FileUrl { get; set; }
 
-        [BsonElement("thumbnailUrl")]
+        [BsonElement("video_url")]
         public string ThumbnailUrl { get; set; }
 
         [BsonElement("tags")]
@@ -49,14 +46,22 @@ namespace ClickHealthBackend.Models
         [BsonElement("expiryDate")]
         public DateTime? ExpiryDate { get; set; }
 
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         [BsonElement("uploadedBy_user_id")]
         public string UploadedByUserId { get; set; }
+
+        public string UploadedByUserName { get; set; }//added username for reference
 
         [BsonElement("uploadedAt")]
         public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
 
         [BsonElement("metadata")]
         public BsonDocument Metadata { get; set; }
+
+
+        // New fields for approval workflow
+        public string ApprovedByUserId { get; set; }
+        public string ApprovedByUserName { get; set; }
+        public string ApproverNotes { get; set; }
     }
 }
